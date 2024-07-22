@@ -22,13 +22,13 @@ if len(driveLetter) != 2:
 	exit()
 
 counter = 0
-attemptedCodes = []
+attemptedCodes = set()
 print('Program has started. Please use the task manager\'s performance tab to check if the program is actually doing something.')
 while len(attemptedCodes) != 10**12:
 	gendKey = GenRecKey()
 	if gendKey not in attemptedCodes:
 		resultX = subprocess.run(['manage-bde', '-unlock', '-recoverypassword', gendKey, driveLetter],stdout=subprocess.PIPE)
-		attemptedCodes.append(GenRecKey())
+		attemptedCodes.add(GenRecKey())
 		counter += 1
 		if counter % 100 == 0:
 			stdout.write('\r' + str(counter))
