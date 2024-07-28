@@ -1,5 +1,4 @@
-def removeenclosings(rawInput):
+def removeEnclosings(text):
 	enclosings = (("'", '"'))
-	for i in enclosings: rawInput = rawInput.removeprefix(i).removesuffix(i)
-	path = rawInput
-	del(rawInput)
+	for i in enclosings: text = text.removeprefix(i).removesuffix(i)
+	return text
