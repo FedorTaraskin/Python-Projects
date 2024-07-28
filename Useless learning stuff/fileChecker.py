@@ -1,10 +1,10 @@
 ##https://youtu.be/XKHEtdqhLK8?si=RaLRZazKjOaWMY50&t=9820
 import os
 
-path = r'D:\Fedor Taraskin\Desktop'
 rawInput = input('Please paste a location here: ')
 enclosings = (("'", '"'))
 for i in enclosings: rawInput = rawInput.removeprefix(i).removesuffix(i)
+path = rawInput
 del(rawInput)
 
 if os.path.exists(path): 
