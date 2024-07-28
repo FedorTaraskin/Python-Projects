@@ -11,5 +11,5 @@ if os.path.exists(path):
 	print('ye, it exists', end=' ')
 	if os.path.isfile(path): print('and it is a file')
 	elif os.path.isdir(path): print('and it is a directory/folder')
-	else: print('Hmm, it exists but it\'s not a file nor a directory?')
+	else: print('but it\'s not a file nor a directory?')
 else: print ('oops, no such thing! :(')
