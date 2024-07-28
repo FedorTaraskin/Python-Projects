@@ -1,10 +1,9 @@
 ##https://youtu.be/XKHEtdqhLK8?si=KxmBQLKVT7YErFqK&t=10048
 import os
-from customModules import enclosingRemover
 
-rawInput = input('Please paste a location here: ')
-path = enclosingRemover.removeEnclosings(rawInput)
-del (rawInput)
+path = input('Please paste a location here: ')
+enclosings = (("'", '"'))
+for i in enclosings: path = path.removeprefix(i).removesuffix(i)
 
 if os.path.exists(path): 
 	if os.path.isfile(path):
