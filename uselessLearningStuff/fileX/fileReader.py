@@ -9,6 +9,6 @@ if os.path.exists(path):
 	if os.path.isfile(path):
 		##Main code here
 		with open (path) as file: print(file.read())
-	elif os.path.isdir(path): print('That is a directory (folder).')
-	else: print('It\'s not a file nor a directory, yet it exists?')
+	elif os.path.isdir(path): print('That is a directory (folder). Please select a file and not a directory.')
+	else: print('It\'s not a file nor a directory, yet it exists? Please send a screenshot to the developer of this program.')
 else: print ('Oops, no such thing! :(')

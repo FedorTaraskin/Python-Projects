@@ -1,11 +1,9 @@
 ##https://youtu.be/XKHEtdqhLK8?si=zKHhk2tvsr6zMERP&t=10260
 import os
 
+path = input('Please paste a location here: ')
 enclosings = (("'", '"'))
-rawInput = input('Please paste a location here: ')
-for i in enclosings: rawInput = rawInput.removeprefix(i).removesuffix(i)
-path = rawInput
-del(rawInput)
+for i in enclosings: path = path.removeprefix(i).removesuffix(i)
 
 if os.path.exists(path): 
 	if os.path.isfile(path):
