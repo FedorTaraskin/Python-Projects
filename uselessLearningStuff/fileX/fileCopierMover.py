@@ -16,8 +16,9 @@ dest = r"D:\pytestfolder\pytest.txt"
 mode = input('Would you like to copy (c) or move (m) a file? (c/m): ')
 
 if os.path.exists(src):
+	overwriteConfirmation(dest)
+
 	if os.path.isfile(src):
-		overwriteConfirmation(dest)
 		if mode == 'c': 
 			from shutil import copy
 			copy(src, dest)
@@ -25,6 +26,7 @@ if os.path.exists(src):
 		elif mode == 'm':
 			os.replace(src, dest)
 			print(f'The file from {src} has been moved to {dest}.')
+			
 	elif os.path.isdir(src):
 		if mode == 'c':
 			from shutil import copytree
@@ -33,6 +35,8 @@ if os.path.exists(src):
 		elif mode == 'm':
 			os.replace(src, dest)
 			print(f'The folder from {src} has been moved to {dest}.')
+
 	else: print('ERROR: The source path exists, but is not a file nor a directory.')
+	
 elif not os.path.exists(src): print ('Sorry, this path does not exist.')
 else: print('An unexpected ERROR ocurred, please send the developer a screenshot of this program.')
