@@ -1,7 +1,7 @@
 ##https://youtu.be/XKHEtdqhLK8?si=8vRl2mNfVlZGx6N_&t=10425
 from os import path
 
-src = r"D:\Fedor Taraskin\Desktop\pytestfolder\TASAS ADVAS 1BACH.pdf"
+src = r"D:\Fedor Taraskin\Desktop\pytestfolder"
 dest = r"D:\Inside of this folder is the pytestfolder"
 if path.isdir(src): dest = dest + src[src.rfind('\\'):]
 mode = None
@@ -24,12 +24,14 @@ def overwriteConfirmation(pathArg):
 			from os import remove
 			remove(pathArg)
 
+def makeDestFolder():
+	if not path.exists(dest): 
+		from os import makedirs
+		makedirs(dest)
+
 def main():
 	if path.exists(src):
 		overwriteConfirmation(dest)
-		if not path.exists(dest): 
-			from os import makedirs
-			makedirs(dest)
 
 		if mode == 'c':
 			if path.isfile(src):
@@ -46,7 +48,7 @@ def main():
 
 		elif mode == 'm':
 				from shutil import move
-				move(src, dest) ##HOW COME I AM GETTING PERMISSION ERROR?!
+				move(src, dest)
 				print(f'The file from\n{src}\nhas been moved to\n{dest}.')
 
 	elif not path.exists(src): print('The source path does not exist.')
