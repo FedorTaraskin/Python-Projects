@@ -1,8 +1,8 @@
 ##https://youtu.be/XKHEtdqhLK8?si=8vRl2mNfVlZGx6N_&t=10425
 from os import path
 
-src = r"D:\Fedor Taraskin\Desktop\pytestfolder"
-dest = r"D:\Inside of this folder is the pytestfolder"
+src = input('Please input the file you want to copy or move: ')
+dest = input('Please input the destination for your file: ')
 if path.isdir(src): dest = dest + src[src.rfind('\\'):]
 mode = None
 while not (mode == 'c' or mode == 'm'): mode = input('Would you like to copy (c) or move (m) a file? (c/m): ').lower()
@@ -55,3 +55,5 @@ def main():
 	else: print('An unexpected ERROR ocurred, please send the developer a screenshot of this program.\nThe src path exists but also doesn\'t at the same time.')
 
 main()
+
+input('Press enter to exit.')
