@@ -24,10 +24,10 @@ def overwriteConfirmation(pathArg):
 			from os import remove
 			remove(pathArg)
 
-def makeDestFolder():
+'''def makeDestFolder():
 	if not path.exists(dest): 
 		from os import makedirs
-		makedirs(dest)
+		makedirs(dest)'''
 
 def main():
 	if path.exists(src):
