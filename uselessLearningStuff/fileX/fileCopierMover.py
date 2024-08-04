@@ -1,15 +1,17 @@
 ##https://youtu.be/XKHEtdqhLK8?si=8vRl2mNfVlZGx6N_&t=10425
 from os import path
+print('Note: folders are also named directories ocasionally.')
 
-src = input('Please input the file you want to copy or move: ')
+src = input('Please input the file/folder you want to copy or move: ')
 dest = input('Please input the destination for your file: ')
-if path.isdir(src): dest = dest + src[src.rfind('\\'):]
+if path.isdir(src): dest += src[src.rfind('\\'):] ##if the source is a directory, add it to the destination (so that it doesn't overwrite the dest dir)
 mode = None
-while not (mode == 'c' or mode == 'm'): mode = input('Would you like to copy (c) or move (m) a file? (c/m): ').lower()
 
 def dirOrFile(pathArg):
 	if path.isfile(pathArg): return 'file'
 	elif path.isdir(pathArg): return 'directory'
+
+while not (mode == 'c' or mode == 'm'): mode = input(f'Would you like to copy (c) or move (m) the {dirOrFile(src)}? (c/m): ').lower()
 
 def overwriteConfirmation(pathArg):
 	pathType = dirOrFile(pathArg)
@@ -23,11 +25,6 @@ def overwriteConfirmation(pathArg):
 		elif path.isfile(pathArg):
 			from os import remove
 			remove(pathArg)
-
-'''def makeDestFolder():
-	if not path.exists(dest): 
-		from os import makedirs
-		makedirs(dest)'''
 
 def main():
 	if path.exists(src):
@@ -51,9 +48,7 @@ def main():
 				move(src, dest)
 				print(f'The file from\n{src}\nhas been moved to\n{dest}.')
 
-	elif not path.exists(src): print('The source path does not exist.')
+	elif not path.exists(src): print('The source path does not exist.') ##TODO/ERROR: Sometimes this triggers wrongly. Ex: src = "D:\Fedor Taraskin\Desktop\pytestfolder"
 	else: print('An unexpected ERROR ocurred, please send the developer a screenshot of this program.\nThe src path exists but also doesn\'t at the same time.')
 
 main()
-
-input('Press enter to exit.')
